@@ -3,10 +3,10 @@
 /* Create the card objec that we will use for the game */
 
 class Card{
-    constructor(suit, type, img){
+    constructor(suit, type){
         this.suit = suit
         this.type = type 
-        this.img = img
+        // this.img = img
         this.score = getScore(suit)
     }
 
@@ -34,6 +34,19 @@ let types = [["Crane", "Red Poem"], ["Nightinale", "Red Poem"], ["Curtain", "Red
              ["Deer", "Blue"], ["Rain", "Swallow", "Red"], ["Pheonix"]]
 
 
+let deck = []
+
+// Create the deck
+for(let i = 0; i < 12; i++){
+    let fullTypes = types.map(createFullSuit)
+
+    deck.push(...createCardsBySuit(flowers[i], fullTypes[i]))
+}
+
+
+
+
+
 /* ------------------------------------------
  Helper functions - Deck Creation
 --------------------------------------------- */
@@ -44,7 +57,7 @@ function createFullSuit(array){
     let len = 4 - array.length
 
     for(let i = 0; i < len; i++){
-        array.push(`Plain ${1}`)
+        array.push(`Plain ${i}`)
     }
 
     return array
@@ -63,4 +76,15 @@ function getScore(type){
         return 1
     }
 
+}
+
+function createCardsBySuit(suit, types){
+    
+    let fullSuit = []
+    
+    for(let i = 0; i < types.length; i++){
+        fullSuit[i] = new Card(suit, types[i])
+    }
+
+    return fullSuit
 }
