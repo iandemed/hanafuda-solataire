@@ -47,6 +47,12 @@ for(let i = 0; i < 12; i++){
 let tableau = document.querySelector(".tableau")
 
 
+for (let i = 0; i < 48; i++){
+    let cardSquare = createCardSquare(i)
+    tableau.appendChild(cardSquare)
+}
+
+
 
 /* ------------------------------------------
  Helper functions - Deck Creation
@@ -110,6 +116,10 @@ function createCardSquare(pos){
     let cardSquare = document.createElement("div")
     cardSquare.classList.add("card-square")
     cardSquare.dataset.position = pos
+
+    cardSquare.addEventListener('click', (e) => {
+        console.log(correspondingCard(e.target))
+    })
 
     return cardSquare
 }
