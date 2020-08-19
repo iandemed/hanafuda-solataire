@@ -6,8 +6,7 @@ class Card{
     constructor(suit, type){
         this.suit = suit
         this.type = type 
-        // this.img = img
-        this.score = getScore(suit)
+        this.score = getScore(type)
     }
 
     createImg(){
@@ -65,6 +64,8 @@ function createFullSuit(array){
 
 
 function getScore(type){
+
+    console.log(type)
 
     if(light.includes(type)){
         return 20
