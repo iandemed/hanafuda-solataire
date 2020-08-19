@@ -30,12 +30,13 @@ let tane = ["Nightingale", "Cuckoo", "Bridge", "Butterflies", "Boar", "Geese", "
 let ribbons = ["Red Poem", "Red", "Blue"]
 
 // Creates an array of each of the flowers that correspon with each month
-let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysanthemum", "Maple", "Willow", "Paulownia"]
+//let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysanthemum", "Maple", "Willow", "Paulownia"]
+let flowers = ["Maple", "Willow", "Paulownia"]
 
 // Creates an array of each type per month of card
-let types = [["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
-             ["Cuckoo", "Red"], ["Bridge", "Red"], ["Butterflies", "Blue"], 
-             ["Boar", "Red"], ["Moon", "Geese"], ["Sake", "Blue"],
+let types = [// ["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
+             // ["Cuckoo", "Red"], ["Bridge", "Red"], ["Butterflies", "Blue"], 
+             // ["Boar", "Red"], ["Moon", "Geese"], ["Sake", "Blue"],
              ["Deer", "Blue"], ["Rain", "Swallow", "Red"], ["Pheonix"]]
 
 
@@ -161,7 +162,7 @@ function createStock(deck){
 // Discard a card and decrase the size of the stock pile
 function removeCard(){
     console.log("This function is being called")
-    stock.unshift()
+    stock.shift()
 
     if(stock.length == 0){
         console.log("YOU LOSE! Would you like to restart?")
@@ -201,8 +202,12 @@ function clickedCard(e){
     /* When a user draws a willow card they must discard it
     and reduce their hand-size by one */
     if(stock[0].suit === "Willow"){
-        removeCard()
         console.log("You discarded a Willow.")
         console.log(`Your stock-pile is now: ${stock.length}`)
+        removeCard()
+        
+        
+        console.log("Current Stock Card:")
+        console.log(stock[0])
     }
 }
