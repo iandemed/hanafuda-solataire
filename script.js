@@ -30,7 +30,7 @@ let tane = ["Nightingale", "Cuckoo", "Bridge", "Butterflies", "Boar", "Geese", "
 let ribbons = ["Red Poem", "Red", "Blue"]
 
 // Creates an array of each of the flowers that correspon with each month
-let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysantenmum", "Maple", "Willow", "Paulownia"]
+let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysanthemum", "Maple", "Willow", "Paulownia"]
 
 // Creates an array of each type per month of card
 let types = [["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
