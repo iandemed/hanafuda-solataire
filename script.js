@@ -44,6 +44,8 @@ for(let i = 0; i < 12; i++){
 
 }
 
+let stock = createStock(deck)
+
 let tableau = document.querySelector(".tableau")
 
 
@@ -118,6 +120,9 @@ function createCardSquare(pos){
     cardSquare.dataset.position = pos
 
     cardSquare.addEventListener('click', (e) => {
+        console.log("Stock Card: ")
+        console.log(stock[0])
+        console.log("Clicked Card: ")
         console.log(correspondingCard(e.target))
     })
 
@@ -138,7 +143,13 @@ function correspondingCard(cardSquare){
 
 function createStock(deck){
     
+    // Get the last 4 cards of the deck
     pos = (deck.length - 1) - 4
 
     return deck.splice(pos, 4)
 }
+
+
+/* ------------------------------------------
+ Helper functions - Gameplay
+--------------------------------------------- */
