@@ -65,8 +65,6 @@ function createFullSuit(array){
 
 function getScore(type){
 
-    console.log(type)
-
     if(light.includes(type)){
         return 20
     } else if (tane.includes(type)){
@@ -89,3 +87,7 @@ function createCardsBySuit(suit, types){
 
     return fullSuit
 }
+
+/* ------------------------------------------
+ Helper functions - Tableau Creation
+--------------------------------------------- */

@@ -1,0 +1,13 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.tableau{
+    height: 95%;
+    width: 95%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row: 1fr 1fr 1fr 1fr;
+}
