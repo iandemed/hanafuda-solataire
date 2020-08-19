@@ -44,7 +44,7 @@ for(let i = 0; i < 12; i++){
 
 }
 
-
+let tableau = document.querySelector(".tableau")
 
 
 
@@ -105,3 +105,10 @@ function shuffle(deck){
 /* ------------------------------------------
  Helper functions - Tableau Creation
 --------------------------------------------- */
+
+function createCardSquare(){
+    let cardSquare = document.createElement("div")
+    cardSquare.classList.add("square")
+
+    return cardSquare
+}

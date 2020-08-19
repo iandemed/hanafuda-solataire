@@ -5,7 +5,6 @@ body{
 
 .tableau{
     height: 95%;
-    width: 95%;
 
     display: grid;
 
@@ -18,13 +17,12 @@ body{
 }
 
 
-/* Clas created to test visual feel of tableau
+/* Class created to test visual feel of tableau */
 
 .square{
     display: inline-block;
     height: 120px;
     width: 120px;
     background: red;
+    margin: 10px;
 }
-
-*/
