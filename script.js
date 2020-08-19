@@ -41,8 +41,8 @@ let types = [["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Re
 
 let deck = []
 
-// Create the deck
-for(let i = 0; i < 12; i++){
+/*Create the deck using the suits of the cards as the foundation*/
+for(let i = 0; i < flowers.length; i++){
     let fullTypes = types.map(createFullSuit)
 
     deck.push(...createCardsBySuit(flowers[i], fullTypes[i]))
@@ -54,8 +54,8 @@ let stock = createStock(deck)
 
 let tableau = document.querySelector(".tableau")
 
-
-for (let i = 0; i < 44; i++){
+/* Create the squares */
+for (let i = 0; i < deck.length; i++){
     let cardSquare = createCardSquare(i)
     tableau.appendChild(cardSquare)
 }
@@ -160,6 +160,7 @@ function createStock(deck){
 
 // Discard a card and decrase the size of the stock pile
 function removeCard(){
+    console.log("This function is being called")
     stock.unshift()
 
     if(stock.length == 0){
@@ -181,12 +182,9 @@ function swapCards(pos){
 
 function clickedCard(e){
 
-    // Print a message to check what card was clicked --- THIS WILL BE REMOVED IN FINAL GAME
-    console.log("Clicked Card: ")
-
+    /* Get the position of the clicked card */
     let pos = getPosition(e.target)
      
-    console.log(correspondingCard(pos))
     /* Place the card from the top of the stock pile 
     and add the face-down card to the bottom */
     swapCards(pos)
