@@ -123,17 +123,20 @@ function createCardSquare(pos){
         console.log("Stock Card: ")
         console.log(stock[0])
         console.log("Clicked Card: ")
-        console.log(correspondingCard(e.target))
+
+        let pos = getPosition(e.target)
+
+        console.log(correspondingCard(pos))
     })
 
     return cardSquare
 }
 
-function correspondingCard(cardSquare){
-    
-    let pos = parseInt(cardSquare.dataset.position)
-    console.log(pos)
+function getPosition(cardSquare){
+    return parseInt(cardSquare.dataset.position)
+}
 
+function correspondingCard(pos){
     return deck[pos]
 }
 
