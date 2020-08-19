@@ -108,8 +108,16 @@ function shuffle(deck){
 
 function createCardSquare(pos){
     let cardSquare = document.createElement("div")
-    cardSquare.classList.add("square")
+    cardSquare.classList.add("card-square")
     cardSquare.dataset.position = pos
 
     return cardSquare
+}
+
+function correspondingCard(cardSquare){
+    
+    let pos = parseInt(cardSquare.dataset.position)
+    console.log(pos)
+
+    return deck[pos]
 }

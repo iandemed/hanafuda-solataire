@@ -19,10 +19,10 @@ body{
 
 /* Class created to test visual feel of tableau */
 
-.square{
+.card-square{
     display: inline-block;
     height: 120px;
     width: 120px;
-    background: red;
+    background: black;
     margin: 10px;
 }
