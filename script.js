@@ -131,8 +131,14 @@ function createCardSquare(pos){
         console.log("Clicked Card: ")
 
         let pos = getPosition(e.target)
+         
         console.log(correspondingCard(pos))
         swapCards(pos)
+
+        // Get the card that was swapped from the stock pile
+        // to the tableau
+        let swappedCard = correspondingCard(pos)
+        addCardImage(e.target, swappedCard)
     })
 
     return cardSquare
@@ -146,7 +152,10 @@ function correspondingCard(pos){
     return deck[pos]
 }
 
-function addCardImage(cardSquare){
+function addCardImage(cardSquare, swappedCard){
+
+    console.log(cardSquare)
+    console.log(swappedCard)
 
 }
 
