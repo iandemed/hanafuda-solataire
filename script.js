@@ -126,24 +126,7 @@ function createCardSquare(pos){
     cardSquare.classList.add("card-square")
     cardSquare.dataset.position = pos
 
-    cardSquare.addEventListener('click', (e) => {
-        console.log("Stock Card: ")
-        console.log(stock[0])
-        console.log("Clicked Card: ")
-
-        let pos = getPosition(e.target)
-         
-        console.log(correspondingCard(pos))
-        swapCards(pos)
-
-        // Get the card that was swapped from the stock pile
-        // to the tableau
-        let swappedCard = correspondingCard(pos)
-        addCardImage(e.target, swappedCard)
-
-        console.log("Current Stock Card:")
-        console.log(stock[0])
-    })
+    cardSquare.addEventListener('click', clickedCard)
 
     return cardSquare
 }
@@ -175,6 +158,15 @@ function createStock(deck){
     return deck.splice(pos, 4)
 }
 
+// Discard a card and decrase the size of the stock pile
+function removeCard(stock){
+    stock.unshift()
+
+    if(stock.length == 0){
+        console.log("YOU LOSE! Would you like to restart?")
+    }
+}
+
 
 /* ------------------------------------------
  Helper functions - Gameplay
@@ -187,3 +179,21 @@ function swapCards(pos){
      deck[pos] = stockCard
 }
 
+function clickedCard(e){
+    console.log("Stock Card: ")
+    console.log(stock[0])
+    console.log("Clicked Card: ")
+
+    let pos = getPosition(e.target)
+     
+    console.log(correspondingCard(pos))
+    swapCards(pos)
+
+    // Get the card that was swapped from the stock pile
+    // to the tableau
+    let swappedCard = correspondingCard(pos)
+    addCardImage(e.target, swappedCard)
+
+    console.log("Current Stock Card:")
+    console.log(stock[0])
+}
