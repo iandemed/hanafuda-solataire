@@ -47,7 +47,7 @@ for(let i = 0; i < 12; i++){
 let tableau = document.querySelector(".tableau")
 
 
-for (let i = 0; i < 48; i++){
+for (let i = 0; i < 44; i++){
     let cardSquare = createCardSquare(i)
     tableau.appendChild(cardSquare)
 }
@@ -130,4 +130,15 @@ function correspondingCard(cardSquare){
     console.log(pos)
 
     return deck[pos]
+}
+
+/* ------------------------------------------
+ Helper functions - Stock Pile
+--------------------------------------------- */
+
+function createStock(deck){
+    
+    pos = (deck.length - 1) - 4
+
+    return deck.splice(pos, 4)
 }
