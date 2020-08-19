@@ -40,6 +40,8 @@ for(let i = 0; i < 12; i++){
     let fullTypes = types.map(createFullSuit)
 
     deck.push(...createCardsBySuit(flowers[i], fullTypes[i]))
+    shuffle(deck)
+
 }
 
 
@@ -86,6 +88,18 @@ function createCardsBySuit(suit, types){
     }
 
     return fullSuit
+}
+
+// Implement the Fisher-Yates shuffle algorithm
+function shuffle(deck){
+    let j, temp = null
+  
+        for (let i = deck.length - 1; i > 0; i--) {
+          j = Math.floor(Math.random() * (i+1))
+          temp = deck[i]
+          deck[i] = deck[j]
+          deck[j] = temp
+        }
 }
 
 /* ------------------------------------------

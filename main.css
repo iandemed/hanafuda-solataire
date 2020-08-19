@@ -8,6 +8,23 @@ body{
     width: 95%;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-row: 1fr 1fr 1fr 1fr;
+
+    /* I tried having the tableau in both landscape and portrait persepectives.
+    portrait provided more white space, with vertical scrolling that in I feel
+    is more familiar to users and more web friendly */
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+
+
+/* Clas created to test visual feel of tableau
+
+.square{
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    background: red;
+}
+
+*/
