@@ -125,8 +125,8 @@ function createCardSquare(pos){
         console.log("Clicked Card: ")
 
         let pos = getPosition(e.target)
-
         console.log(correspondingCard(pos))
+        swapCards(pos)
     })
 
     return cardSquare
@@ -156,3 +156,10 @@ function createStock(deck){
 /* ------------------------------------------
  Helper functions - Gameplay
 --------------------------------------------- */
+
+function swapCards(pos){
+     let stockCard = stock[0]
+    
+     stock[0] = deck[pos]
+     deck[pos] = stockCard
+}
