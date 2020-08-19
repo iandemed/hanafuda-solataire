@@ -139,9 +139,9 @@ function correspondingCard(pos){
     return deck[pos]
 }
 
-function addCardImage(cardSquare, swappedCard){
+function addCardImage(cardSquare, placedCard){
 
-    let imgURL = swappedCard.prepareImgPath()
+    let imgURL = placedCard.prepareImgPath()
     cardSquare.style.backgroundImage = `url(${imgURL})`
 
 }
@@ -180,20 +180,23 @@ function swapCards(pos){
 }
 
 function clickedCard(e){
-    console.log("Stock Card: ")
-    console.log(stock[0])
+
+    // Print a message to check what card was clicked --- THIS WILL BE REMOVED IN FINAL GAME
     console.log("Clicked Card: ")
 
     let pos = getPosition(e.target)
      
     console.log(correspondingCard(pos))
+    /* Place the card from the top of the stock pile 
+    and add the face-down card to the bottom */
     swapCards(pos)
 
-    // Get the card that was swapped from the stock pile
-    // to the tableau
-    let swappedCard = correspondingCard(pos)
-    addCardImage(e.target, swappedCard)
+    /* Get the card that was swapped from the stock pile
+    to the tableau and add the corresponding image file*/
+    let placedCard = correspondingCard(pos)
+    addCardImage(e.target, placedCard)
 
+    /* Let the user know what their new card is */
     console.log("Current Stock Card:")
     console.log(stock[0])
 }
