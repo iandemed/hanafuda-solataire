@@ -33,7 +33,7 @@ let ribbons = ["Red Poem", "Red", "Blue"]
 let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysantenmum", "Maple", "Willow", "Paulownia"]
 
 // Creates an array of each type per month of card
-let types = [["Crane", "Red Poem"], ["Nightinale", "Red Poem"], ["Curtain", "Red Poem"],
+let types = [["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
              ["Cuckoo", "Red"], ["Bridge", "Red"], ["Butterflies", "Blue"], 
              ["Boar", "Red"], ["Moon", "Geese"], ["Sake", "Blue"],
              ["Deer", "Blue"], ["Rain", "Swallow", "Red"], ["Pheonix"]]
@@ -60,7 +60,8 @@ for (let i = 0; i < 44; i++){
     tableau.appendChild(cardSquare)
 }
 
-
+console.log("Current Stock Card:")
+console.log(stock[0])
 
 /* ------------------------------------------
  Helper functions - Deck Creation
@@ -139,6 +140,9 @@ function createCardSquare(pos){
         // to the tableau
         let swappedCard = correspondingCard(pos)
         addCardImage(e.target, swappedCard)
+
+        console.log("Current Stock Card:")
+        console.log(stock[0])
     })
 
     return cardSquare
@@ -154,8 +158,8 @@ function correspondingCard(pos){
 
 function addCardImage(cardSquare, swappedCard){
 
-    console.log(cardSquare)
-    console.log(swappedCard)
+    let imgURL = swappedCard.prepareImgPath()
+    cardSquare.style.backgroundImage = `url(${imgURL})`
 
 }
 
