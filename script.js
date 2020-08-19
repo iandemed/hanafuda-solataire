@@ -106,9 +106,10 @@ function shuffle(deck){
  Helper functions - Tableau Creation
 --------------------------------------------- */
 
-function createCardSquare(){
+function createCardSquare(pos){
     let cardSquare = document.createElement("div")
     cardSquare.classList.add("square")
+    cardSquare.dataset.position = pos
 
     return cardSquare
 }
