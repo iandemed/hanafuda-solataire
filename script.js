@@ -158,8 +158,8 @@ function createStock(deck){
 --------------------------------------------- */
 
 function swapCards(pos){
-     let stockCard = stock[0]
+     let stockCard = stock.shift()
     
-     stock[0] = deck[pos]
+     stock.push(deck[pos])
      deck[pos] = stockCard
 }
