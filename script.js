@@ -159,7 +159,7 @@ function createStock(deck){
 }
 
 // Discard a card and decrase the size of the stock pile
-function removeCard(stock){
+function removeCard(){
     stock.unshift()
 
     if(stock.length == 0){
@@ -199,4 +199,12 @@ function clickedCard(e){
     /* Let the user know what their new card is */
     console.log("Current Stock Card:")
     console.log(stock[0])
+
+    /* When a user draws a willow card they must discard it
+    and reduce their hand-size by one */
+    if(stock[0].suit === "Willow"){
+        removeCard()
+        console.log("You discarded a Willow.")
+        console.log(`Your stock-pile is now: ${stock.length}`)
+    }
 }
