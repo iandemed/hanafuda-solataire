@@ -21,8 +21,8 @@ body{
 
 .card-square{
     display: inline-block;
-    height: 120px;
-    width: 120px;
+    height: 200px;
+    width: 122px;
     background: black;
     margin: 10px;
 }

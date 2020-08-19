@@ -9,8 +9,14 @@ class Card{
         this.score = getScore(type)
     }
 
-    createImg(){
-        return `<img src="./imgs/${img}" alt = "${suit.toLowerCase()} ${type}">`
+    prepareImgPath()
+    {
+        let suit = this.suit.toLowerCase()
+        // Replaces any white space inside the string with a -
+        let type = this.type.toLowerCase().replace(/\s/g, "-")
+
+
+        return `./imgs/${[suit, type].join("-")}.png`
     }
 }
 
@@ -140,6 +146,10 @@ function correspondingCard(pos){
     return deck[pos]
 }
 
+function addCardImage(cardSquare){
+
+}
+
 /* ------------------------------------------
  Helper functions - Stock Pile
 --------------------------------------------- */
@@ -163,3 +173,4 @@ function swapCards(pos){
      stock.push(deck[pos])
      deck[pos] = stockCard
 }
+
