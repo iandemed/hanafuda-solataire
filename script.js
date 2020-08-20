@@ -143,12 +143,26 @@ for(let i = 0; i < flowers.length; i++){
 
 let game = new Game(deck)
 
+/* Select all of the relevant divs */
 let tableau = document.querySelector(".tableau")
+let willows = document.querySelector(".willows")
+let stock = document.querySelector(".stock-card")
 
-/* Create the squares */
+/* Create the tableau squares */
 for (let i = 0; i < deck.length; i++){
-    let cardSquare = createCardSquare(i)
+    let cardSquare = createCardSquare("tableau", i)
     tableau.appendChild(cardSquare)
+}
+
+
+let stockSquare = createCardSquare("stock")
+stock.appendChild(stockSquare)
+
+for (let i = 0; i < 4; i++){
+    let currentType = fullTypes[11][i].toLowerCase().replace(/\s/g, "-")
+    let willowSquare = createCardSquare(`${["willow", currentType].join("-")}`)
+
+    willows.appendChild(willowSquare)
 }
 
 console.log("Current Stock Card:")
@@ -216,13 +230,17 @@ function shuffle(deck){
  Helper functions - Tableau Creation
 --------------------------------------------- */
 
-function createCardSquare(pos){
+function createCardSquare(type, pos = 0){
     let cardSquare = document.createElement("div")
     cardSquare.classList.add("card-square")
-    cardSquare.dataset.position = pos
-
-    cardSquare.addEventListener('click', clickedCard)
-
+    
+    if (type === "tableau"){
+        cardSquare.dataset.position = pos
+        cardSquare.addEventListener('click', clickedCard)
+    } else {
+        cardSquare.backgroundImage = "url(./imgs/plum-blossom-white.svg)"
+        cardSquare.dataset.type = type
+    }
     return cardSquare
 }
 
