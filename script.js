@@ -130,8 +130,8 @@ let types = [["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Re
 let deck = []
 
 /*Create the deck using the suits of the cards as the foundation*/
+let fullTypes = types.map(createFullSuit)
 for(let i = 0; i < flowers.length; i++){
-    let fullTypes = types.map(createFullSuit)
 
     deck.push(...createCardsBySuit(flowers[i], fullTypes[i]))
     shuffle(deck)
@@ -260,7 +260,9 @@ function clickedCard(e) {
     let pos = getPosition(e.target)
     let suit = game.stock[0].suit
 
-    if (game.checkColumnPlacement(suit, pos)){
+    if (e.target.style.backgroundImage !== ""){
+        console.log("You've clicked an occupied space!")
+    } else if (game.checkColumnPlacement(suit, pos)){
         placeCard(e,pos)
     } else{
         console.log(`The ${suit} cards don't go there!`)
