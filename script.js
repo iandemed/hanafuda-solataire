@@ -64,6 +64,10 @@ for (let i = 0; i < deck.length; i++){
 console.log("Current Stock Card:")
 console.log(stock[0])
 
+if (stock[0].suit === "Willow"){
+    drewWillow()
+}
+
 /* ------------------------------------------
  Helper functions - Deck Creation
 --------------------------------------------- */
@@ -161,12 +165,14 @@ function createStock(deck){
 
 // Discard a card and decrase the size of the stock pile
 function removeCard(){
-    console.log("This function is being called")
     stock.shift()
 
     if(stock.length == 0){
         console.log("YOU LOSE! Would you like to restart?")
     }
+
+    console.log("Current Stock Card:")
+    console.log(stock[0])
 }
 
 
@@ -179,6 +185,29 @@ function swapCards(pos){
     
      stock.push(deck[pos])
      deck[pos] = stockCard
+}
+
+/* Upon drawing a willow card, we remove that card from the stock pile then
+draw the next card to check if it is a willow card. If it is, we repeat this
+process until we have no more cards in the stock pile, or we draw a card that
+is not a willow*/
+
+function drewWillow(){
+    let isWillow = true 
+
+    console.log(isWillow)
+
+    removeCard()
+
+    while(isWillow){
+        if(stock[0].suit === "Willow"){
+            console.log("Triggered the loop!")
+            removeCard()
+        } else {
+            isWillow = false
+        }
+    }
+
 }
 
 function clickedCard(e){
@@ -202,12 +231,6 @@ function clickedCard(e){
     /* When a user draws a willow card they must discard it
     and reduce their hand-size by one */
     if(stock[0].suit === "Willow"){
-        console.log("You discarded a Willow.")
-        console.log(`Your stock-pile is now: ${stock.length}`)
-        removeCard()
-        
-        
-        console.log("Current Stock Card:")
-        console.log(stock[0])
+        drewWillow()
     }
 }
