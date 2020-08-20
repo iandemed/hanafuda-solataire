@@ -20,6 +20,57 @@ class Card{
     }
 }
 
+
+class Game{
+    constructor(deck){
+        this.deck = deck
+        this.stock = createStock(deck)
+        this.gameOn = true
+    }
+
+    swapCards(pos){
+        let stockCard = this.stock.shift()
+       
+        this.stock.push(deck[pos])
+        this.deck[pos] = stockCard
+   }
+
+
+    removeCard(){
+        this.stock.shift()
+    
+        if(this.stock.length == 0){
+            console.log("YOU LOSE! Would you like to restart?")
+        }
+    
+        console.log("Current Stock Card:")
+        console.log(this.stock[0])
+    }
+    
+    /* Upon drawing a willow card, we remove that card from the stock pile then
+    draw the next card to check if it is a willow card. If it is, we repeat this
+    process until we have no more cards in the stock pile, or we draw a card that
+    is not a willow*/
+
+    drewWillow(){
+        let isWillow = true 
+    
+        console.log(isWillow)
+    
+        this.removeCard()
+    
+        while(isWillow){
+            if(this.stock[0].suit === "Willow"){
+                console.log("Triggered the loop!")
+                this.removeCard()
+            } else {
+                isWillow = false
+            }
+        }
+    }
+    
+}
+
 /* Hanafuda cards do not follow the same convention of ranking as
     french suited playing cards. There are 3 primary indicators of
     a cards value. Whether the card belongs to the "lights", tane,
@@ -51,7 +102,7 @@ for(let i = 0; i < flowers.length; i++){
 
 }
 
-let stock = createStock(deck)
+let game = new Game(deck)
 
 let tableau = document.querySelector(".tableau")
 
@@ -62,10 +113,10 @@ for (let i = 0; i < deck.length; i++){
 }
 
 console.log("Current Stock Card:")
-console.log(stock[0])
+console.log(game.stock[0])
 
-if (stock[0].suit === "Willow"){
-    drewWillow()
+if (game.stock[0].suit === "Willow"){
+    game.drewWillow()
 }
 
 /* ------------------------------------------
@@ -141,7 +192,7 @@ function getPosition(cardSquare){
 }
 
 function correspondingCard(pos){
-    return deck[pos]
+    return game.deck[pos]
 }
 
 function addCardImage(cardSquare, placedCard){
@@ -164,51 +215,13 @@ function createStock(deck){
 }
 
 // Discard a card and decrase the size of the stock pile
-function removeCard(){
-    stock.shift()
-
-    if(stock.length == 0){
-        console.log("YOU LOSE! Would you like to restart?")
-    }
-
-    console.log("Current Stock Card:")
-    console.log(stock[0])
-}
-
 
 /* ------------------------------------------
  Helper functions - Gameplay
 --------------------------------------------- */
 
-function swapCards(pos){
-     let stockCard = stock.shift()
-    
-     stock.push(deck[pos])
-     deck[pos] = stockCard
-}
 
-/* Upon drawing a willow card, we remove that card from the stock pile then
-draw the next card to check if it is a willow card. If it is, we repeat this
-process until we have no more cards in the stock pile, or we draw a card that
-is not a willow*/
 
-function drewWillow(){
-    let isWillow = true 
-
-    console.log(isWillow)
-
-    removeCard()
-
-    while(isWillow){
-        if(stock[0].suit === "Willow"){
-            console.log("Triggered the loop!")
-            removeCard()
-        } else {
-            isWillow = false
-        }
-    }
-
-}
 
 function clickedCard(e){
 
@@ -217,7 +230,7 @@ function clickedCard(e){
      
     /* Place the card from the top of the stock pile 
     and add the face-down card to the bottom */
-    swapCards(pos)
+    game.swapCards(pos)
 
     /* Get the card that was swapped from the stock pile
     to the tableau and add the corresponding image file*/
@@ -226,11 +239,11 @@ function clickedCard(e){
 
     /* Let the user know what their new card is */
     console.log("Current Stock Card:")
-    console.log(stock[0])
+    console.log(game.stock[0])
 
     /* When a user draws a willow card they must discard it
     and reduce their hand-size by one */
-    if(stock[0].suit === "Willow"){
-        drewWillow()
+    if(game.stock[0].suit === "Willow"){
+        game.drewWillow()
     }
 }
