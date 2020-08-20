@@ -26,6 +26,8 @@ class Game{
         this.deck = deck
         this.stock = createStock(deck)
         this.gameOn = true
+        this.cardsLaid = 0
+        this.deckLength = this.deck.length
     }
 
     swapCards(pos){
@@ -60,9 +62,11 @@ class Game{
 
         while(isWillow){
 
+            /* I check to see if our stock has any cards remaining first to prevent
+            our conditional from checking for an undefined value */
             if (this.stock.length === 0 ){
-                console.log("You lose!")
                 isWillow = false
+                this.gameOn = false
             } else if(this.stock[0].suit === "Willow"){
                 this.removeCard()
                 console.log(`${this.stock.length} cards remain`)
@@ -70,6 +74,24 @@ class Game{
                 console.log(this.stock[0])
             } else {
                 isWillow = false 
+            }
+        }
+
+        /* We only have to check the game once we begin to draw Willow cards.
+        Either we run out of cards in our stock pile before completing the tableau,
+        or we only have willow cards remaining in our stock pile causing us to
+        discard them all */
+
+        this.checkGame()
+    }
+
+    checkGame(){
+        console.log("Checking the game!")
+        if (this.gameOn === false){
+            if(this.cardsLaid === this.deckLength){
+                console.log("CONGRATULATIONS, YOU WIN")
+            } else{
+                console.log("YOU LOSE")
             }
         }
     }
@@ -241,6 +263,8 @@ function clickedCard(e){
     to the tableau and add the corresponding image file*/
     let placedCard = correspondingCard(pos)
     addCardImage(e.target, placedCard)
+
+    game.cardsLaid++
 
     /* Let the user know what their new card is */
     console.log("Current Stock Card:")
