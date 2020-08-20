@@ -12,8 +12,8 @@ body{
     portrait provided more white space, with vertical scrolling that in I feel
     is more familiar to users and more web friendly */
 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-row: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* Class created to test visual feel of tableau */

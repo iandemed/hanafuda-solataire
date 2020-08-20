@@ -91,7 +91,6 @@ class Game{
     }
 
     checkGame(){
-        console.log("Checking the game!")
         if (this.gameOn === false){
             if(this.cardsLaid === this.deckLength){
                 console.log("CONGRATULATIONS, YOU WIN")
@@ -101,11 +100,15 @@ class Game{
         }
     }
 
-    checkColumnPlacement(suit, pos){
-        console.log(pos)
-       return flowers[pos%11] === suit
-    }
+    checkPlacement(suit, pos, type){
+        let row = Math.floor(pos/4)
+        let column = pos%4
 
+        let matchedSuit = flowers[row] === suit
+        let matchedValue = fullTypes[row][column] === type
+
+        return (matchedSuit && matchedValue)
+    }
 }
 
 /* Hanafuda cards do not follow the same convention of ranking as
@@ -259,10 +262,11 @@ function clickedCard(e) {
     /* Get the position of the clicked card */
     let pos = getPosition(e.target)
     let suit = game.stock[0].suit
+    let type = game.stock[0].type
 
     if (e.target.style.backgroundImage !== ""){
         console.log("You've clicked an occupied space!")
-    } else if (game.checkColumnPlacement(suit, pos)){
+    } else if (game.checkPlacement(suit, pos, type)){
         placeCard(e,pos)
     } else{
         console.log(`The ${suit} cards don't go there!`)
