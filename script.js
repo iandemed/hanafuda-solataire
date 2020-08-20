@@ -38,13 +38,7 @@ class Game{
 
     removeCard(){
         this.stock.shift()
-    
-        if(this.stock.length == 0){
-            console.log("YOU LOSE! Would you like to restart?")
-        }
-    
-        console.log("Current Stock Card:")
-        console.log(this.stock[0])
+        console.log("A card has been removed")
     }
     
     /* Upon drawing a willow card, we remove that card from the stock pile then
@@ -54,17 +48,28 @@ class Game{
 
     drewWillow(){
         let isWillow = true 
-    
-        console.log(isWillow)
-    
+        
+        console.log("You drew a Willow")
+
+
         this.removeCard()
     
+        console.log(`${this.stock.length} cards remain`)
+        console.log("Current Stock Card:")
+        console.log(this.stock[0])
+
         while(isWillow){
-            if(this.stock[0].suit === "Willow"){
-                console.log("Triggered the loop!")
-                this.removeCard()
-            } else {
+
+            if (this.stock.length === 0 ){
+                console.log("You lose!")
                 isWillow = false
+            } else if(this.stock[0].suit === "Willow"){
+                this.removeCard()
+                console.log(`${this.stock.length} cards remain`)
+                console.log("Current Stock Card:")
+                console.log(this.stock[0])
+            } else {
+                isWillow = false 
             }
         }
     }
