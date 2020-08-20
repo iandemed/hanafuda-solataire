@@ -1,6 +1,8 @@
 
 
-/* Create the card objec that we will use for the game */
+/* ------------------------------------------
+ Create Card object
+--------------------------------------------- */
 
 class Card{
     constructor(suit, type){
@@ -20,6 +22,9 @@ class Card{
     }
 }
 
+/* ------------------------------------------
+ Create Game object
+--------------------------------------------- */
 
 class Game{
     constructor(deck){
@@ -37,7 +42,7 @@ class Game{
         this.deck[pos] = stockCard
    }
 
-
+   /* Discard a card and decrease the size of the stock pile */
     removeCard(){
         this.stock.shift()
         console.log("A card has been removed")
@@ -95,7 +100,11 @@ class Game{
             }
         }
     }
-    
+
+    checkColumnPlacement(suit, pos){
+       return flowers[pos%2] === suit
+    }
+
 }
 
 /* Hanafuda cards do not follow the same convention of ranking as
@@ -109,13 +118,13 @@ let ribbons = ["Red Poem", "Red", "Blue"]
 
 // Creates an array of each of the flowers that correspon with each month
 //let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysanthemum", "Maple", "Willow", "Paulownia"]
-let flowers = ["Maple", "Willow", "Paulownia"]
+let flowers = ["Maple", "Paulownia", "Willow"]
 
 // Creates an array of each type per month of card
 let types = [// ["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
              // ["Cuckoo", "Red"], ["Bridge", "Red"], ["Butterflies", "Blue"], 
              // ["Boar", "Red"], ["Moon", "Geese"], ["Sake", "Blue"],
-             ["Deer", "Blue"], ["Rain", "Swallow", "Red"], ["Pheonix"]]
+             ["Deer", "Blue"], ["Pheonix"], ["Rain", "Swallow", "Red"]]
 
 
 let deck = []
@@ -241,20 +250,24 @@ function createStock(deck){
     return deck.splice(pos, 4)
 }
 
-// Discard a card and decrase the size of the stock pile
-
 /* ------------------------------------------
  Helper functions - Gameplay
 --------------------------------------------- */
 
-
-
-
-function clickedCard(e){
+function clickedCard(e) {
 
     /* Get the position of the clicked card */
     let pos = getPosition(e.target)
-     
+    let suit = game.stock[0].suit
+
+    if (game.checkColumnPlacement(suit, pos)){
+        placeCard(e,pos)
+    } else{
+        console.log(`The ${suit} cards don't go there!`)
+    }
+}
+
+function placeCard(e, pos){
     /* Place the card from the top of the stock pile 
     and add the face-down card to the bottom */
     game.swapCards(pos)
@@ -263,7 +276,6 @@ function clickedCard(e){
     to the tableau and add the corresponding image file*/
     let placedCard = correspondingCard(pos)
     addCardImage(e.target, placedCard)
-
     game.cardsLaid++
 
     /* Let the user know what their new card is */
