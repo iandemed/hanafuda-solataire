@@ -102,7 +102,8 @@ class Game{
     }
 
     checkColumnPlacement(suit, pos){
-       return flowers[pos%2] === suit
+        console.log(pos)
+       return flowers[pos%11] === suit
     }
 
 }
@@ -117,13 +118,12 @@ let tane = ["Nightingale", "Cuckoo", "Bridge", "Butterflies", "Boar", "Geese", "
 let ribbons = ["Red Poem", "Red", "Blue"]
 
 // Creates an array of each of the flowers that correspon with each month
-//let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysanthemum", "Maple", "Willow", "Paulownia"]
-let flowers = ["Maple", "Paulownia", "Willow"]
+let flowers = ["Pine", "Plum", "Cherry", "Wisteria", "Iris", "Peony", "Lespedeza", "Pampas", "Chrysanthemum", "Maple", "Paulownia", "Willow"]
 
 // Creates an array of each type per month of card
-let types = [// ["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
-             // ["Cuckoo", "Red"], ["Bridge", "Red"], ["Butterflies", "Blue"], 
-             // ["Boar", "Red"], ["Moon", "Geese"], ["Sake", "Blue"],
+let types = [["Crane", "Red Poem"], ["Nightingale", "Red Poem"], ["Curtain", "Red Poem"],
+             ["Cuckoo", "Red"], ["Bridge", "Red"], ["Butterflies", "Blue"], 
+             ["Boar", "Red"], ["Moon", "Geese"], ["Sake", "Blue"],
              ["Deer", "Blue"], ["Pheonix"], ["Rain", "Swallow", "Red"]]
 
 
