@@ -3,10 +3,17 @@ html, body{
     margin: 0px;
 }
 
+body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .tableau{
     height: 95%;
-    margin: 5%;
     display: grid;
+    align-items: center;
+    justify-items: center;
 
     /* I tried having the tableau in both landscape and portrait persepectives.
     portrait provided more white space, with vertical scrolling that in I feel
@@ -30,8 +37,7 @@ html, body{
 @media screen and (max-width: 834px){
 
     .tableau{
-        display: inline-block;
-        grid-template-columns: repeat(4, minmax(50.5px, 122px));
+        grid-template-columns: repeat(4, minmax(30.5px, 122px));
         grid-template-rows: repeat(11, minmax(50px, 200px));
         
         /* This property allows me to adjust the orientation of the screen as
