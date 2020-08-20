@@ -13,7 +13,7 @@ body{
     is more familiar to users and more web friendly */
 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-row: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 /* Class created to test visual feel of tableau */
@@ -24,4 +24,13 @@ body{
     width: 122px;
     background: black;
     margin: 10px;
+}
+
+@media screen and (max-width: 834px){
+
+    .tableau{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-flow: column;
+    }
 }
