@@ -1,6 +1,5 @@
-body{
+html, body{
     height: 100%;
-    width: 100%;
 }
 
 .tableau{
@@ -22,8 +21,10 @@ body{
     display: inline-block;
     height: 200px;
     width: 122px;
-    background: black;
+    background: #92382f;
     margin: 10px;
+
+    box-shadow: 5px 5px 8px 5px #9a9a9a;
 }
 
 @media screen and (max-width: 834px){
@@ -32,5 +33,10 @@ body{
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-auto-flow: column;
+    }
+
+    .card-square{
+        height: 100px;
+        width: 61px;
     }
 }
