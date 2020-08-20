@@ -101,12 +101,12 @@ class Game{
     }
 
     checkPlacement(suit, pos, type){
-        let row = Math.floor(pos/4)
-        let column = pos%4
+        let row = Math.floor(pos/11)
+        let column = pos%11
 
-        let matchedSuit = flowers[row] === suit
-        let matchedValue = fullTypes[row][column] === type
-
+        let matchedSuit = flowers[column] === suit
+        let matchedValue = fullTypes[column][row] === type
+       
         return (matchedSuit && matchedValue)
     }
 }
