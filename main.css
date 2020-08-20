@@ -1,18 +1,19 @@
 html, body{
     height: 100%;
+    margin: 0px;
 }
 
 .tableau{
     height: 95%;
-
+    margin: 5%;
     display: grid;
 
     /* I tried having the tableau in both landscape and portrait persepectives.
     portrait provided more white space, with vertical scrolling that in I feel
-    is more familiar to users and more web friendly */
+    is more familiar to users and more web friendly on larger screens*/
 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(11, minmax(30.5px, 122px));
+    grid-template-rows: repeat(11, minmax(50px, 200px));
 }
 
 /* Class created to test visual feel of tableau */
@@ -22,7 +23,6 @@ html, body{
     height: 200px;
     width: 122px;
     background: #92382f;
-    margin: 10px;
 
     box-shadow: 5px 5px 8px 5px #9a9a9a;
 }
@@ -30,13 +30,20 @@ html, body{
 @media screen and (max-width: 834px){
 
     .tableau{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        display: inline-block;
+        grid-template-columns: repeat(4, minmax(50.5px, 122px));
+        grid-template-rows: repeat(11, minmax(50px, 200px));
+        
+        /* This property allows me to adjust the orientation of the screen as
+        a user resizes it, without having to change the calculations used to
+        check the placement of the cards.*/
         grid-auto-flow: column;
+
+        grid-gap: 2.5px;
     }
 
     .card-square{
-        height: 100px;
-        width: 61px;
+        height: 50px;
+        width: 30.5px;
     }
 }
