@@ -46,7 +46,6 @@ class Game{
     removeCard(){
         let willowCard = this.stock.shift()
         placeWillow(willowCard)
-        console.log("A card has been removed")
     }
     
     /* Upon drawing a willow card, we remove that card from the stock pile then
@@ -57,12 +56,8 @@ class Game{
     drewWillow(){
         let isWillow = true 
         
-        console.log("You drew a Willow")
-
-
         this.removeCard()
     
-        console.log(`${this.stock.length} cards remain`)
         showStockCard()
 
         while(isWillow){
@@ -92,9 +87,9 @@ class Game{
     checkGame(){
         if (this.gameOn === false){
             if(this.cardsLaid === this.deckLength){
-                console.log("CONGRATULATIONS, YOU WIN")
+                displayResult("win!")
             } else{
-                console.log("YOU LOSE")
+                displayResult("lose!")
             }
         }
     }
@@ -328,4 +323,12 @@ function placeWillow(willowCard){
     let willowSquare = document.querySelector(`.willows .card-square[data-position="${pos}"]`)
 
     addCardImage(willowSquare, willowCard)
+}
+
+function displayResult(result){
+    let messageTags = document.querySelectorAll(".message")
+    messageTags[0].innerText = "You"
+    messageTags[1].innerText = result
+
+
 }
