@@ -4,4 +4,4 @@
 
 | Suit | Cards |
 | :------- | :----: |
-| Pine | ![crane](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/pine-crane.png)|
+| Pine | ![crane](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/pine-crane.png) ![red-poem](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/pine-red-poem.png) ![plain](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/pine-plain-0.png) ![plain](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/pine-plain-1.png)|
