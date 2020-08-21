@@ -33,8 +33,7 @@ body{
     }
 }
 
-
-.start-button{
+.start-button {
     padding: 1rem 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -45,7 +44,7 @@ body{
     color: #ffffff;
 
     margin-bottom: 5%;
-}
+  }
 
 h1{
     text-transform: uppercase;
@@ -97,14 +96,17 @@ h1{
     background-position: center;
 }
 
-.start-button {
-    padding: 1rem 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.25rem;
-    animation: 2s linear infinite blink;
-  }
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-items: center;
+}
 
+.message{
+    text-orientation: upright;
+    color: #000000
+}
 
 /*-----------------------------------
     Reactive styling
