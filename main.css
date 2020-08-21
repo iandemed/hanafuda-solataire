@@ -15,43 +15,42 @@ body{
     Styling for start page
 -----------------------------------*/
 .start-screen{
-    background-image: url(./imgs/hanafuda-load-screen.jpg);
-    background-size: cover;
-    background-position: center;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
 }
 
-@keyframes blink{
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50%{
-        opacity: 0%;
-    }
-}
-
-.start-button {
+.button {
     padding: 1rem 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.25rem;
-    animation: 6s linear infinite blink;
-
     text-decoration: none;
     color: #ffffff;
 
-    margin-bottom: 5%;
+    text-align: center;
   }
 
-h1{
+.button-container{
+    background-color: #92382f;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    border-radius: 20px;
+}
+
+.start-screen h1{
     text-transform: uppercase;
+    text-align: center;
     display: inline-block;
-    color: #ffffff
+    color: #000000;
+    font-size: 6rem;
+}
+
+a > img{
+    display: block;
 }
 
 /*-----------------------------------
@@ -81,6 +80,8 @@ h1{
     background: #92382f;
 
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
     box-shadow: 2.5px 2.5px 5px 3px #9a9a9a;
 }
@@ -94,10 +95,6 @@ h1{
 
 .willows .card-square{
     margin: 5px;
-
-
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .container{
