@@ -192,6 +192,20 @@ function createCardsBySuit(suit, types){
     return fullSuit
 }
 
+function getScore(type){
+
+    if(light.includes(type)){
+        return 20
+    } else if (tane.includes(type)){
+        return 10
+    } else if (ribbons.includes(type)){
+        return 5
+    } else {
+        return 1
+    }
+
+}
+
 // Implement the Fisher-Yates shuffle algorithm
 function shuffle(deck){
     let j, temp = null
