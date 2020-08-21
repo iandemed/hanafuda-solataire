@@ -4,9 +4,11 @@ html, body{
 }
 
 body{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+
+    align-content: center;
+    justify-items: center;
 }
 
 /*-----------------------------------
@@ -67,7 +69,7 @@ h1{
     is more familiar to users and more web friendly on larger screens*/
 
     grid-template-columns: repeat(11, 132px);
-    grid-template-rows: repeat(11, 210px);
+    grid-template-rows: repeat(4, 210px);
 }
 
 /* Class created to test visual feel of tableau */
@@ -86,6 +88,8 @@ h1{
 .willows{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .willows .card-square{
@@ -99,29 +103,74 @@ h1{
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     justify-items: center;
 }
 
 .message{
-    text-orientation: upright;
+    text-align: center;
     color: #000000
+}
+
+.stock-card{
+    text-align: center;
 }
 
 /*-----------------------------------
     Reactive styling
 -----------------------------------*/
 
-@media screen and (max-width: 834px){
 
+@media screen and (max-width: 1900px){
     .tableau{
-        grid-template-columns: repeat(4, 30.5px);
-        grid-template-rows: repeat(11, 50px);
-        
+        grid-template-columns: repeat(11, 101.5px);
+        grid-template-rows: repeat(4, 160px);
+    }
+
+    .card-square{
+        width: 91.5px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 1350px){
+    .tableau{
+        grid-template-columns: repeat(11, 71px);
+        grid-template-rows: repeat(4, 120px);
+    }
+
+    .card-square{
+        width: 61px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 930px){
+    body{
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    
+    .tableau{           
         /* This property allows me to adjust the orientation of the screen as
         a user resizes it, without having to change the calculations used to
         check the placement of the cards.*/
         grid-auto-flow: column;
+        grid-template-columns: repeat(4, 30.5px);
+        grid-template-rows: repeat(11, 50px);
+        grid-gap: 10px;
+    }
+
+    .tableau .card-square{
+        height: 50px;
+        width: 30.5px;
+    }
+}
+
+
+@media screen and (max-width: 834px){
+
+    .tableau{
+
 
         grid-gap: 2.5px;
     }
