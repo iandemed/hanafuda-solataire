@@ -2,7 +2,7 @@
 
 #### Overview
 
-[Hanafuda](#https://en.wikipedia.org/wiki/Hanafuda), or flower cards, are Japanese playing cards that are used to play a variety of games, primarily to play Koi-Koi. Flower cards have 12 suits corresponding to each of the months and a particular flower associated with that month:  
+[Hanafuda](https://en.wikipedia.org/wiki/Hanafuda), or flower cards, are Japanese playing cards that are used to play a variety of games, primarily to play Koi-Koi. Flower cards have 12 suits corresponding to each of the months and a particular flower associated with that month:  
 
 
 | Suit | Cards |
@@ -21,7 +21,7 @@
 | December (Paulownia) | ![pheonix](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/paulownia-pheonix.png) ![plain](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/paulownia-plain-0.png) ![plain](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/paulownia-plain-1.png) ![plain](https://github.com/iandemed/hanafuda-solataire/blob/master/imgs/paulownia-plain-2.png)|  
 
 
-For more information on how the game is played, please consult the [info page][#https://https://iandemed.github.io/hanafuda-solataire/].  
+For more information on how the game is played, please consult the [info page](https://https://iandemed.github.io/hanafuda-solataire/).  
 
 
 #### Technologies Used   
