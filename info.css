@@ -1,0 +1,94 @@
+html, body{
+    height: 100%;
+    margin: 0px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header{
+    width: 100%;
+    margin-bottom: 2.5%;
+}
+
+header, footer{
+    background-color: #92382f;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-weight: 900px;
+    padding: 10px;
+}
+
+.home{
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+}
+
+main{
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 2.5%;
+}
+
+.social-media{
+    margin: 5px;
+}
+
+.info-container{
+    width: 90%;
+    display: inline-block;
+}
+
+.info{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.month{
+    display: inline-block;
+    width: 95%;
+}
+
+.txt-box{
+    width: 95%;
+    font-size: 24px;
+}
+
+li{
+    text-align: justify;
+}
+
+@media screen and (max-width: 1200px){
+    li{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    li{
+        font-size: 16px;
+    }
+}

@@ -188,6 +188,15 @@ footer{
     margin: 5px;
 }
 
+.info-container{
+    width: 90%;
+}
+
+.info{
+    max-height: 940px;
+    max-width: 1728px;
+}
+
 /*-----------------------------------
     Reactive styling
 -----------------------------------*/
