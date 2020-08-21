@@ -62,8 +62,7 @@ class Game{
         this.removeCard()
     
         console.log(`${this.stock.length} cards remain`)
-        console.log("Current Stock Card:")
-        console.log(this.stock[0])
+        showStockCard()
 
         while(isWillow){
 
@@ -150,23 +149,22 @@ let stock = document.querySelector(".stock-card")
 
 /* Create the tableau squares */
 for (let i = 0; i < deck.length; i++){
-    let cardSquare = createCardSquare("tableau", i)
+    let cardSquare = createCardSquare(i)
     tableau.appendChild(cardSquare)
 }
 
 
-let stockSquare = createCardSquare("stock")
+let stockSquare = createCardSquare(0)
 stock.appendChild(stockSquare)
 
 for (let i = 0; i < 4; i++){
-    let currentType = fullTypes[11][i].toLowerCase().replace(/\s/g, "-")
-    let willowSquare = createCardSquare(`${["willow", currentType].join("-")}`)
+    let willowSquare = createCardSquare(i)
+    willowSquare.style.backgroundImage = "url(./imgs/plum-blossom-white.png)"
 
     willows.appendChild(willowSquare)
 }
 
-console.log("Current Stock Card:")
-console.log(game.stock[0])
+showStockCard()
 
 if (game.stock[0].suit === "Willow"){
     game.drewWillow()
@@ -230,17 +228,13 @@ function shuffle(deck){
  Helper functions - Tableau Creation
 --------------------------------------------- */
 
-function createCardSquare(type, pos = 0){
+function createCardSquare(pos){
     let cardSquare = document.createElement("div")
     cardSquare.classList.add("card-square")
-    
-    if (type === "tableau"){
-        cardSquare.dataset.position = pos
-        cardSquare.addEventListener('click', clickedCard)
-    } else {
-        cardSquare.backgroundImage = "url(./imgs/plum-blossom-white.svg)"
-        cardSquare.dataset.type = type
-    }
+
+    cardSquare.dataset.position = pos
+    cardSquare.addEventListener('click', clickedCard)
+
     return cardSquare
 }
 
@@ -248,13 +242,14 @@ function getPosition(cardSquare){
     return parseInt(cardSquare.dataset.position)
 }
 
+/* Returns a card based on it's indexed position */
 function correspondingCard(pos){
     return game.deck[pos]
 }
 
-function addCardImage(cardSquare, placedCard){
+function addCardImage(cardSquare, card){
 
-    let imgURL = placedCard.prepareImgPath()
+    let imgURL = card.prepareImgPath()
     cardSquare.style.backgroundImage = `url(${imgURL})`
 
 }
@@ -291,6 +286,15 @@ function clickedCard(e) {
     }
 }
 
+function showStockCard(){
+    let stockCard = game.stock[0]
+    let stockCardSquare = document.querySelector(".stock-card .card-square")
+    if (game.stock.length > 0){
+        addCardImage(stockCardSquare, stockCard)
+    }
+}
+
+
 function placeCard(e, pos){
     /* Place the card from the top of the stock pile 
     and add the face-down card to the bottom */
@@ -303,12 +307,21 @@ function placeCard(e, pos){
     game.cardsLaid++
 
     /* Let the user know what their new card is */
-    console.log("Current Stock Card:")
-    console.log(game.stock[0])
+    showStockCard()
 
     /* When a user draws a willow card they must discard it
     and reduce their hand-size by one */
     if(game.stock[0].suit === "Willow"){
         game.drewWillow()
     }
+}
+
+function placeWillow(willowCard){
+    /* Searches for the positional value of the willow card using the
+    array that we used to contstuct the deck */
+
+    let type = willowCard.type
+    let pos = fullTypes[11].indexOf(type)
+
+    let willowSquare = document.querySelector(".willows [data")
 }

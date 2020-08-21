@@ -36,6 +36,19 @@ body{
     box-shadow: 2.5px 2.5px 5px 3px #9a9a9a;
 }
 
+.willows{
+    display: flex;
+    flex-direction: column;
+}
+
+.willows .card-square{
+    margin: 5px;
+
+
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 @media screen and (max-width: 834px){
 
     .tableau{
@@ -53,5 +66,10 @@ body{
     .card-square{
         height: 50px;
         width: 30.5px;
+    }
+
+    .stock-card > * {
+        height: 75px;
+        width: 45.75px;
     }
 }
