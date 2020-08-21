@@ -104,7 +104,7 @@ class Game{
         let column = pos%11
 
         let matchedSuit = flowers[column] === suit
-        let matchedValue = fullTypes[column][row] === type
+        let matchedValue = fullTypes[column][row].includes(type.substr(0,3))
        
         return (matchedSuit && matchedValue)
     }
