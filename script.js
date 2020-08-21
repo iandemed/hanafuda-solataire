@@ -44,7 +44,8 @@ class Game{
 
    /* Discard a card and decrease the size of the stock pile */
     removeCard(){
-        this.stock.shift()
+        let willowCard = this.stock.shift()
+        placeWillow(willowCard)
         console.log("A card has been removed")
     }
     
@@ -73,9 +74,7 @@ class Game{
                 this.gameOn = false
             } else if(this.stock[0].suit === "Willow"){
                 this.removeCard()
-                console.log(`${this.stock.length} cards remain`)
-                console.log("Current Stock Card:")
-                console.log(this.stock[0])
+                showStockCard()
             } else {
                 isWillow = false 
             }
@@ -323,5 +322,7 @@ function placeWillow(willowCard){
     let type = willowCard.type
     let pos = fullTypes[11].indexOf(type)
 
-    let willowSquare = document.querySelector(".willows [data")
+    let willowSquare = document.querySelector(`.willows .card-square[data-position="${pos}"]`)
+
+    addCardImage(willowSquare, willowCard)
 }
