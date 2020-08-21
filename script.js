@@ -72,6 +72,7 @@ class Game{
             if (this.stock.length === 0 ){
                 isWillow = false
                 this.gameOn = false
+                showStockCard()
             } else if(this.stock[0].suit === "Willow"){
                 this.removeCard()
                 showStockCard()
@@ -290,6 +291,8 @@ function showStockCard(){
     let stockCardSquare = document.querySelector(".stock-card .card-square")
     if (game.stock.length > 0){
         addCardImage(stockCardSquare, stockCard)
+    } else{
+        stockCardSquare.style.backgroundImage = "url(./imgs/plum-blossom-white.png)"
     }
 }
 

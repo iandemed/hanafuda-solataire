@@ -9,6 +9,54 @@ body{
     align-items: center;
 }
 
+/*-----------------------------------
+    Styling for start page
+-----------------------------------*/
+.start-screen{
+    background-image: url(./imgs/hanafuda-load-screen.jpg);
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@keyframes blink{
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0%;
+    }
+}
+
+
+.start-button{
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.25rem;
+    animation: 6s linear infinite blink;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    margin-bottom: 5%;
+}
+
+h1{
+    text-transform: uppercase;
+    display: inline-block;
+    color: #ffffff
+}
+
+/*-----------------------------------
+    Styling for the tableau
+-----------------------------------*/
+
 .tableau{
     height: 95%;
     display: grid;
@@ -48,6 +96,19 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.start-button {
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.25rem;
+    animation: 2s linear infinite blink;
+  }
+
+
+/*-----------------------------------
+    Reactive styling
+-----------------------------------*/
 
 @media screen and (max-width: 834px){
 
