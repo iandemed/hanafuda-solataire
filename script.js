@@ -272,12 +272,18 @@ function clickedCard(e) {
     let suit = game.stock[0].suit
     let type = game.stock[0].type
 
-    if (e.target.style.backgroundImage !== ""){
-        console.log("You've clicked an occupied space!")
-    } else if (game.checkPlacement(suit, pos, type)){
+    let clickedCard = e.target
+
+    if (game.checkPlacement(suit, pos, type)){
         placeCard(e,pos)
     } else{
-        console.log(`The ${suit} cards don't go there!`)
+        clickedCard.classList.add("wrong-card")
+    }
+
+    if(clickedCard.classList.length > 1){
+        console.log("It works")
+        setTimeout((clickedCard) => {
+            clickedCard.classList.remove("wrong-card")}, 150, clickedCard)
     }
 }
 
