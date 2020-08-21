@@ -1,6 +1,6 @@
 # Hanafuda Solataire
 
-#### Overview
+### Overview
 
 [Hanafuda](https://en.wikipedia.org/wiki/Hanafuda), or flower cards, are Japanese playing cards that are used to play a variety of games, primarily to play Koi-Koi. Flower cards have 12 suits corresponding to each of the months and a particular flower associated with that month:  
 
@@ -24,7 +24,7 @@
 For more information on how the game is played, please consult the [info page](https://https://iandemed.github.io/hanafuda-solataire/).  
 
 
-#### Technologies Used   
+### Technologies Used   
 
 I use the three following technologies to construct Hanafuda Solitaire:  
 
@@ -32,6 +32,6 @@ I use the three following technologies to construct Hanafuda Solitaire:
 2. CSS - to style all of the elements on all three pages and create animations to provide visual information to the players
 3. JavaScript - to create the tableau and run the game
 
-#### Unsolved Problems  
+### Unsolved Problems  
 
 Currently the game runs without errors, however there are several things that could be done to improve the player experience. I am currently not able to save the game states when navigating between the tableau and info pages, this may cause a player that is unfamiliar with the flower suits and their value to lose their progress in their current game. One possible solution would be to create modals that can be accessed in the tableau and expand the info page to include more context around the cards.
