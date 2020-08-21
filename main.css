@@ -166,21 +166,13 @@ h1{
     }
 }
 
-
-@media screen and (max-width: 834px){
+@media screen and (max-width: 375px){
 
     .tableau{
-
-
-        grid-gap: 2.5px;
+        grid-gap: 5px;
     }
 
-    .card-square{
-        height: 50px;
-        width: 30.5px;
-    }
-
-    .stock-card > * {
+    .stock-card > * , .willows > * {
         height: 75px;
         width: 45.75px;
     }
